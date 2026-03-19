@@ -2,7 +2,7 @@
 <h1 align="center">Open5GS-Slice-Aware-Telemetry-Platform</h1>
 
 <!-- PROJECT LOGO -->
-<h1 align="center">Group_C</h1>
+
 <p align="center">
   M.Eng. Information Technology <br>
 </p>
@@ -85,16 +85,12 @@ graph TD
 
 ---
 
-- `open5gs.env`
-- `amf.yaml`
-- `smf1.yaml`, `smf2.yaml`, `smf3.yaml`, `smf4.yaml`
-- `upf1.yaml`, `upf2.yaml`, `upf3.yaml`, `upf4.yaml`
-- `gnb.yaml`, `ue1.yaml`, `ue2.yaml`
-- `packetrusher1.yaml`, `packetrusher2.yaml`
-- `receiver.py`
-- `status_exporter.py`
-- `backend.py`
-- `orchestrator.py`
-- `index.html`
-- `ueransim_core.html`
-- `packetrusher_core.html`
+## 3. Verified Design
+
+### 3.1 Core Versions and Environment
+The project depends on the following software versions:
+
+- **Open5GS**: `v2.7.6`
+- **UERANSIM**: `v3.2.7`
+- **PacketRusher**: `main`
+- **MongoDB**: `6.0`
