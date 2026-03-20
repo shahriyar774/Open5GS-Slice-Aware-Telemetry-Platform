@@ -1,0 +1,38 @@
+services:
+  gnb:
+    image: free5gc/ueransim:latest
+    container_name: gnb
+    networks: [open5gs]
+    cap_add: [NET_ADMIN]
+    volumes:
+       - ../../../configs/basic/ueransim/gnb.yaml:/ueransim/config/gnb.yaml:ro
+    command: ["/ueransim/nr-gnb","-c","/ueransim/config/gnb.yaml"]
+
+  ue1_iot:
+    image: free5gc/ueransim:latest
+    container_name: ue1_iot
+    depends_on: [gnb]
+    networks: [open5gs]
+    cap_add: [NET_ADMIN]
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    volumes:
+      - ../../../configs/basic/ueransim/ue1.yaml:/ueransim/config/ue.yaml:ro
+    command: ["/ueransim/nr-ue","-c","/ueransim/config/ue.yaml"]
+    
+
+  ue2_car:
+    image: free5gc/ueransim:latest
+    container_name: ue2_car
+    depends_on: [gnb]
+    networks: [open5gs]
+    cap_add: [NET_ADMIN]
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    volumes:
+      - ../../../configs/basic/ueransim/ue2.yaml:/ueransim/config/ue.yaml:ro
+    command: ["/ueransim/nr-ue","-c","/ueransim/config/ue.yaml"]
+
+networks:
+  open5gs:
+    external: true
