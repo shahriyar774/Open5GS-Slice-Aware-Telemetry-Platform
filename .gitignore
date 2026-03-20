@@ -1,0 +1,19 @@
+# Logs
+*.log
+results/
+
+# Environment
+.env
+
+# Backups and temporary files
+*.bak
+*.tmp
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+
+# OS files
+.DS_Store
+Thumbs.db
